@@ -37,6 +37,9 @@ jobs:
           sudo apt-get install -y \
             libx11-dev libxcursor-dev libxi-dev libwebp-dev
         fi
+    - name: Modify CMakeLists.txt
+      run: |
+        echo 'find_library(WEBP_LIBRARIES NAMES webp PATHS /usr/lib /usr/local/lib)' >> CMakeLists.txt
     - name: Generating Makefiles
       shell: bash
       run: |
